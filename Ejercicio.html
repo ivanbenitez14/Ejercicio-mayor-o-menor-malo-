@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="bg-img">
+
+            <h1>Juego de mayor o menor</h1>
+        <br>
+        <h3>Adivina si el número que sigue va a ser mayor o menor al que esta en la pantalla</h3>
+        <br>
+        <div id="numeroEnPantalla"></div>
+        <br>
+        <br>
+        <button type="button" id="btnMayor">Mayor</button> o 
+        <button type="button" id="btnMenor">Menor</button>
+        <br>
+        <br>
+        <br>
+        <button id="btnRecargar" onClick="window.location.reload();">Intentar nuevamente</button>
+        <br>
+        <br>
+        <h1>Formulario de verificación</h1>
+        <div action="formulario.php" method="post">
+            <input type="text" name="" id="nombre" placeholder="nombre">
+            <br>        
+            <input type="text" name="" id="email" placeholder="email">
+            <br>
+            <textarea placeholder="Tu mensaje" id="mensaje"></textarea>
+            
+        </div>
+
+        <form action="file:///C:/Users/nbx11/Desktop/Ejercicio%20mayor%20o%20menor%20(malo)/robot.html" target="_blank">
+
+            <p>
+          
+              Selecciona 1 o más de tus intereses:
+              <br>
+              <br>
+              <input type="checkbox" name="necesidades"> Asesinar a Sarah Connor.<br>
+          
+              <input type="checkbox" name="tiempoLibre"> Comprar WD-40 de vez en cuando.<br>
+
+              <input type="checkbox" name="peliculas"> Mirar I, Robot.<br>
+              <br>
+              Es usted un robot?
+              <br>
+              <input type="checkbox" name="necesidades"> Sí.<marquee class="GeneratedMarquee" direction="left" scrollamount="50" behavior="scroll">No</marquee>
+              
+          
+            </p>
+            <p><input type="submit" value="Enviar información"></p>
+          
+        </form>
+        
+        <script>
+            /*numero aleatorio que se muestra en pantalla*/
+            var numeroAleatorio = Math.floor(Math.random() * 100);
+            document.getElementById("numeroEnPantalla").innerHTML = numeroAleatorio;
+
+            /*Botones*/
+            document.getElementById("btnMayor").addEventListener("click", botonMayor);
+            document.getElementById("btnMenor").addEventListener("click", botonMenor);
+
+            //Funcion de boton mayor.          
+            function botonMayor(){
+            // Definimos el próximo número
+            var nuevoNumero = Math.floor(Math.random() * 100);
+            if (numeroAleatorio < nuevoNumero) {
+            document.getElementById("numeroEnPantalla").innerHTML = "Para saber si gano o perdio complete el formulario para confirmar que no es un robot.";
+            } else {
+            document.getElementById("numeroEnPantalla").innerHTML = "Para saber si gano o perdio complete el formulario para confirmar que no es un robot.";            
+            }
+            }
+            
+            //Funcion de boton menor.
+            function botonMenor(){
+            // Definimos el próximo numero
+            var nuevoNumero = Math.floor(Math.random() * 100);
+            if (numeroAleatorio > nuevoNumero) {
+            document.getElementById("numeroEnPantalla").innerHTML = "Ganaste, el número era: " + nuevoNumero;
+            } else {
+            document.getElementById("numeroEnPantalla").innerHTML = "Perdiste, el número era: " + nuevoNumero;;
+            }
+            }
+
+            
+            
+            var timeout;
+            document.onmousemove = function(){
+            clearTimeout(timeout);
+            document.body.classList.add("movimiento");
+            timeout = setTimeout(function(){
+            document.body.classList.remove("movimiento");
+            }, 300);
+            }
+
+            function redireccionarPagina() {
+            window.location = "https://www.youtube.com/watch?v=_Mg7qKstnPk";
+            }
+            setTimeout("redireccionarPagina()", 50000);
+
+        </script>
+
+    </body>
+</html>
